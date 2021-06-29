@@ -4,12 +4,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {SharedModule} from './shared/shared.module';
-import { HomepageComponent } from './components/homepage/homepage.component';
+import {ComponentsModule} from './components/components.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomepageComponent,
   ],
   imports: [
     BrowserModule,
