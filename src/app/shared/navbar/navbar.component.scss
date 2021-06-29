@@ -1,0 +1,62 @@
+@import '../../../variables';
+@import '../../../mixins';
+
+
+.navbar {
+  background: $primary;
+
+  &__links {
+    display: flex;
+    align-items: center;
+  }
+
+  &__search {
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    width: 200px;
+    justify-content: flex-end;
+
+    .form-group {
+      @include transition-duration(0.3s);
+      @include transition-timing-function(ease-in-out);
+      width: 0;
+      margin-bottom: 0 !important;
+
+      .fa-search {
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: green;
+      }
+
+      &.searchCollapse {
+        width: 100% !important;
+
+        .fa-search {
+          background: red;
+        }
+      }
+
+    }
+
+  }
+}
+
+.sidebar {
+  position: absolute;
+  left: -100%;
+  @include transition-duration(0.4s);
+  @include transition-timing-function(ease-in-out);
+  &.active {
+    background: green;
+    display: inline-block;
+    left: 0%;
+  }
+}
+
+
