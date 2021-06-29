@@ -1,1 +1,17 @@
-<p>banner-slider works!</p>
+<section class="banner-slider" (window:resize)="onResize($event)">
+  <owl-carousel-o [options]="owlOptions">
+    <ng-container *ngFor="let data of slideObject">
+      <ng-template carouselSlide [id]="'data.id'">
+        <figure class="banner-slider__item">
+          <!-- <img [src]="data.src" [alt]="data.alt" [title]="data.title"> -->
+          <div style="background: url('{{data.src}}')no-repeat center"></div>
+        </figure>
+      </ng-template>
+    </ng-container>
+  </owl-carousel-o>
+  <figcaption class="banner-slider__caption">
+    <h1 class="text-white">Al Foundation</h1>
+    <p class="text-white">is focused on inspiring the next generation of kids Healthcare professionals.</p>
+    <a class="btn" href="">Donate Now</a>
+  </figcaption>
+</section>

@@ -1,24 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
 // imports
 @import './variables';
-@import './variables';
+@import './mixins';
+@import './fonts';
 
 
 // general style
-*{
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-ul{
+ul {
   list-style: none;
   margin-bottom: 0;
 }
 
 
-.container, .container-sm, .container-md, .container-lg, .container-xl {
-  @media (min-width: 1200px){
+.container,
+.container-sm,
+.container-md,
+.container-lg,
+.container-xl {
+  @media (min-width: 1200px) {
     max-width: 1200px;
   }
 }
+

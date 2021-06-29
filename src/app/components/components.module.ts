@@ -5,6 +5,8 @@ import { ComponentsRoutingModule } from './components-routing.module';
 import { NewsComponent } from './homepage/news/news.component';
 import { BannerSliderComponent } from './homepage/banner-slider/banner-slider.component';
 import { ServicesComponent } from './homepage/services/services.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     HomepageComponent,
@@ -12,7 +14,12 @@ import { ServicesComponent } from './homepage/services/services.component';
     BannerSliderComponent,
     ServicesComponent,
   ],
-  imports: [CommonModule, ComponentsRoutingModule],
+  imports: [
+    CommonModule,
+    CarouselModule,
+    ComponentsRoutingModule,
+    BrowserAnimationsModule,
+  ],
   exports: [HomepageComponent],
 })
-export class ComponentsModule { }
+export class ComponentsModule {}

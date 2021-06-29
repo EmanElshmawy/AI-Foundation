@@ -1,30 +1,40 @@
 <nav class="navbar">
   <div class="container">
     <div class="navbar__menu-btn">
-      <button (click)='collapseMenu=!collapseMenu' class="menu">
-        menu
-      </button>
+      <div (click)='collapseMenu=!collapseMenu' class="menu">
+        <img class="img-fluid" src="../../../assets/img/shared/Menu.png" alt="">
+      </div>
     </div>
     <a href="" class="navbar__logo">
-      <img class="img-fluid" src="../../../assets/Link_logo_vertical_color_Light_RGB.png" alt="">
+      <img class="img-fluid" src="../../../assets/img/shared/logo.png" alt="">
     </a>
     <ul class="navbar__links">
       <li class="navbar__search">
         <div [ngClass]="{'searchCollapse': collapseSearch}" class="form-group">
           <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="Search">
-          <span class="fas fa-search" (click)="searchCollapse()">btn</span>
+          <i class="fas fa-search" (click)="searchCollapse()">
+          </i>
         </div>
       </li>
-      <li class="notification">
-        <div class="dropdown">
+      <ul class="notification">
+        <li class="dropdown">
           <a type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="far fa-bell"></i> </a>
           <ul class="dropdown-menu" aria-labelledby="triggerId">
-            <li><a href="#">link</a></li>
+            <li>
+              <h6 class="dropdown-item">recent notification</h6>
+              <a class="dropdown-item disabled" href="#">Disabled action</a>
+            </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="#">All notification <i
+                  class="fas fa-long-arrow-alt-right fa-1x"></i>
+              </a>
+            </li>
           </ul>
-        </div>
+        </li>
         <a class="toats">setting</a>
-      </li>
+
+      </ul>
       <li class="user align-items-center">
         <img src="../../../assets/img.png" alt="">
         <p>User name</p>
