@@ -28,6 +28,7 @@
       color: #fff;
       margin-bottom: 5rem;
       font-size: 1.6rem;
+      width: clamp(45ch, auto,75ch);
 
       @media(min-width: 992px) {
         font-size: 2rem;
