@@ -5,6 +5,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
 import { CopywriteComponent } from './copywrite/copywrite.component';
 import {RouterModule} from '@angular/router';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import {RouterModule} from '@angular/router';
     CopywriteComponent,
   ],
   imports: [CommonModule,
-    RouterModule],
+    RouterModule,
+    NgbModule],
   exports:[
     NavbarComponent,
     SidebarComponent,

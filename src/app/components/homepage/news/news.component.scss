@@ -1,0 +1,39 @@
+@import '../../../../variables';
+@import '../../../../mixins';
+@import '../../../../news-card';
+.latest-news {
+  padding: 50px 0;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 3rem;
+
+    h2 {
+      font-size: 1.8rem;
+
+      @media (min-width: $lg) {
+        font-size: 3rem;
+      }
+    }
+
+    .view-all {
+      font-size: 1rem;
+      margin: 10px 0 0;
+      color: $sky-blue;
+      text-transform: capitalize;
+
+      i {
+        margin-left: 5px;
+        @include transition-duration(0.2s);
+        @include transition-timing-function(ease-in-out);
+      }
+      &:hover{
+        i {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}

@@ -22,7 +22,7 @@ export class BannerSliderComponent implements OnInit {
     },
     {
       id: 2,
-      src: '../../../../assets/img/homepage/Layer17Mobile@2x.jpg',
+      src: '../../../../assets/img/homepage/slider2Mobile@2x.jpg',
       alt: 'Carousel-2',
       title: 'Carousel-2',
     }

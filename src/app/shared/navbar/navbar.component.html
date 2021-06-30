@@ -1,6 +1,6 @@
 <nav class="navbar fixed-top">
   <div class="container">
-    <div class="navbar__menu-btn "(click)='menuCollapse()' [ngClass]="{'showIcon': collapseMenu}">
+    <div class="navbar__menu-btn" (click)='menuCollapse()' [ngClass]="{'showIcon': collapseMenu}">
         <img class="img-fluid" src="../../../assets/img/shared/Menu.png" alt=""  *ngIf="!collapseMenu">
         <img class="img-fluid" src="../../../assets/img/shared/Menu_2_.svg" alt="" *ngIf="collapseMenu">
     </div>
@@ -10,7 +10,7 @@
     <ul class="navbar__links">
       <li class="navbar__search">
         <div [ngClass]="{'searchCollapse': collapseSearch}" class="form-group">
-          <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="Search">
+          <input type="text" class="form-control" placeholder="Search">
         </div>
         <div class="search" (click)="searchCollapse()">
           <img src="../../../assets/img/shared/ic_search_24px.svg" alt="search" >
