@@ -7,29 +7,33 @@
     <a href="#"><i class="fab fa-instagram instgram"></i></a>
   </div>
   <ul class="sidebar__links">
+    <li class="sidebar__profile align-items-center">
+      <img src="../../../assets/img/shared/img.png" alt="">
+      <p>User name</p>
+    </li>
     <li>
-      <a (click)='active = !active' href="/home">
-        <h3 [ngStyle]="{'color': active ? '#8DC043':'#ffffff'}">Home</h3>
+      <a [routerLinkActive]="'active'" [routerLink]="['']">
+        <h3>Home</h3>
       </a>
     </li>
     <li>
       <h3>About Us</h3>
-      <a href="">who are us</a>
-      <a href="">why us?</a>
+      <a href="#">who are us</a>
+      <a href="#">why us?</a>
     </li>
     <li>
       <h3>News</h3>
-      <a href="/news">News</a>
-      <a href="">Events</a>
+      <a routerLinkActive="active" [routerLink]="['/news']">News</a>
+      <a href="#">Events</a>
     </li>
     <li>
       <h3>Careers</h3>
-      <a href="">Opportunities</a>
+      <a href="#">Opportunities</a>
     </li>
     <li>
-      <a href="">Contact Us
+      <a href="#">Contact Us
       </a>
-      <a href="">Site Map
+      <a href="#">Site Map
       </a>
     </li>
   </ul>

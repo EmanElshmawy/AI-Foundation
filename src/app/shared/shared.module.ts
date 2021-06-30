@@ -4,6 +4,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
 import { CopywriteComponent } from './copywrite/copywrite.component';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { CopywriteComponent } from './copywrite/copywrite.component';
     FooterComponent,
     CopywriteComponent,
   ],
-  imports: [CommonModule],
+  imports: [CommonModule,
+    RouterModule],
   exports:[
     NavbarComponent,
     SidebarComponent,

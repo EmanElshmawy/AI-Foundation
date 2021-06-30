@@ -6,6 +6,10 @@
   background: $primary;
   padding: 10px 0;
 
+  &__menu-btn {
+    width: 25px;
+  }
+
   &__logo {
     margin-left: 30px;
     width: 4rem;
@@ -17,7 +21,10 @@
     margin-left: auto;
 
     li {
-      margin: 0 15px;
+      margin: 0 5px;
+      @media(min-width:$md) {
+        margin: 0 15px;
+      }
     }
   }
 
@@ -25,10 +32,10 @@
     display: flex;
     position: relative;
     justify-content: flex-end;
-    width: 200px;
+
 
     @media(min-width:$md) {
-      width: 300px;
+      width: 200px;
     }
 
     .form-group {
@@ -40,9 +47,15 @@
       position: relative;
 
       .form-control {
-        background: rgba(177, 177, 177, 0.5);
+        background: rgba(112, 112, 112, 50%);
         border: none;
         padding: 0;
+        height: 35px;
+
+        &::placeholder {
+          color: rgba(255, 255, 255, 50%);
+          font-weight: 300;
+        }
       }
 
 
@@ -65,30 +78,30 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 10px;
-      width: 30px;
       color: #ffffff;
       font-size: 1.3rem;
-      padding: 0.5rem;
+      padding: 0.6rem;
       border-radius: 0.5rem;
-
-      &:hover {
-        background-color: $sky-blue;
-
-        .toats {
-          visibility: visible;
-        }
-      }
+      @include navbarHover();
+      @include transition-duration(0.1s);
+      @include transition-timing-function(ease-in-out);
     }
   }
 
   &__profile {
-    display: flex;
-
+    display: none;
     img {
       width: 50px;
     }
+
+    p {
+      color: #fff;
+    }
+    @media(min-width:$md){
+      display: flex;
+    }
   }
+
   .notification {
     margin-right: 0.5rem;
     position: relative;
@@ -96,28 +109,14 @@
     a {
       color: #ffffff;
       font-size: 1.3rem;
-      padding: 0.5rem;
+      padding: 0.6rem;
       border-radius: 0.5rem;
-
-      img {
-        width: 20px;
-      }
-
-      &:hover {
-        background-color: $sky-blue;
-
-        .toats {
-          visibility: visible;
-        }
-      }
+      @include navbarHover();
+      @include transition-duration(0.1s);
+      @include transition-timing-function(ease-in-out);
     }
 
-
-
     .dropdown-menu {
-      transform: translate3d(-115px, 25px, 0px) !important;
-      position: relative;
-
       a {
         font-size: 1rem;
       }
@@ -141,8 +140,6 @@
       }
     }
 
-
-
   }
 
   &__menu-btn {
@@ -152,23 +149,25 @@
   &__setting {
     position: relative;
 
-    &:hover {
-      .toats {
-        visibility: visible;
-      }
+    a {
+      @include navbarHover();
+      @include transition-duration(0.1s);
+      @include transition-timing-function(ease-in-out);
     }
   }
 
   .toats {
     visibility: hidden;
     color: #ffffff;
-    font-size: 1rem !important;
+    font-size: 0.8rem !important;
     background-color: rgba(30, 30, 30, 0.4);
-    padding: 0.2rem 0.5rem !important;
+    padding: 0.3rem 0.6rem !important;
     border-radius: 0.5rem;
     position: absolute;
-    right: -2px;
+    right: -15px;
     top: 100%;
+    margin-top: 5px;
+    text-transform: capitalize;
   }
 
   .container {

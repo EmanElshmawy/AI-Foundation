@@ -13,7 +13,10 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {}
   searchCollapse() {
-    console.log('hereee');
-    return (this.collapseSearch = !this.collapseSearch);
+
+    return this.collapseSearch = !this.collapseSearch;
+  }
+  menuCollapse(){
+    return this.collapseMenu = !this.collapseMenu;
   }
 }

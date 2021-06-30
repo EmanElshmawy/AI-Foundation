@@ -1,0 +1,12 @@
+@import "../../../variables";
+
+.copy-write {
+  color: #fff;
+  background: $primary ;
+  padding: 15px 0;
+  p{
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 300;
+  }
+}

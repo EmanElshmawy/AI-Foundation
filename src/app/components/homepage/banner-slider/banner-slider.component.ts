@@ -10,13 +10,13 @@ export class BannerSliderComponent implements OnInit {
   slideObject = [
     {
       id: 1,
-      src: '../../../../assets/img/homepage/Layer1Mobile.jpg',
+      src: '../../../../assets/img/homepage/Layer17Mobile.jpg',
       alt: 'Carousel 1',
       title: 'Carousel 1',
     },
     {
       id: 2,
-      src: '../../../../assets/img/homepag/Layer17Mobile.jpg',
+      src: '../../../../assets/img/homepage/Layer17Mobile.jpg',
       alt: 'Carousel 2',
       title: 'Carousel 2',
     },

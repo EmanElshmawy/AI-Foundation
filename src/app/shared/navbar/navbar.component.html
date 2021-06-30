@@ -1,9 +1,8 @@
 <nav class="navbar fixed-top">
   <div class="container">
-    <div class="navbar__menu-btn">
-      <div (click)='collapseMenu=!collapseMenu' class="menu">
-        <img class="img-fluid" src="../../../assets/img/shared/Menu.png" alt="">
-      </div>
+    <div class="navbar__menu-btn "(click)='menuCollapse()' [ngClass]="{'showIcon': collapseMenu}">
+        <img class="img-fluid" src="../../../assets/img/shared/Menu.png" alt=""  *ngIf="!collapseMenu">
+        <img class="img-fluid" src="../../../assets/img/shared/Menu_2_.svg" alt="" *ngIf="collapseMenu">
     </div>
     <a href="" class="navbar__logo">
       <img class="img-fluid" src="../../../assets/img/shared/logo.svg" alt="">
@@ -13,17 +12,18 @@
         <div [ngClass]="{'searchCollapse': collapseSearch}" class="form-group">
           <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="Search">
         </div>
-        <div class="search">
-          <img src="../../../assets/img/shared/ic_search_24px.svg" alt=""  (click)="searchCollapse()">
+        <div class="search" (click)="searchCollapse()">
+          <img src="../../../assets/img/shared/ic_search_24px.svg" alt="search" >
         </div>
-        <a class="toats">setting</a>
+        <span class="toats">search</span>
       </li>
       <ul class="notification">
         <li class="dropdown">
-          <a type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a type="button" id="notification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <img src="../../../assets/img/shared/notification.svg" alt="">
+            <span class="toats">notifications</span>
           </a>
-          <ul class="dropdown-menu" aria-labelledby="triggerId">
+          <ul class="dropdown-menu" aria-labelledby="notification">
             <li>
               <h6 class="dropdown-item">recent notification</h6>
               <a class="dropdown-item disabled" href="#">Disabled action</a>
@@ -35,22 +35,19 @@
             </li>
           </ul>
         </li>
-        <a class="toats">setting</a>
       </ul>
       <li class="navbar__profile align-items-center">
         <img src="../../../assets/img/shared/img.png" alt="">
         <p>User name</p>
       </li>
       <li class="navbar__setting">
-        <div class="dropdown">
           <a type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-cog"></i>
+            <img src="../../../assets/img/shared/settings.svg" alt="">
+            <span class="toats">setting</span>
           </a>
           <ul class="dropdown-menu" aria-labelledby="triggerId">
             <li><a href="#"></a></li>
           </ul>
-        </div>
-        <a class="toats">setting</a>
       </li>
     </ul>
   </div>
