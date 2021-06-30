@@ -2,12 +2,13 @@
 
 .banner-slider {
   position: relative;
-
+  height: auto;
+  overflow: hidden;
   &__item {
     height: 55vh;
     overflow: hidden;
     position: relative;
-
+    margin: 0;
     @media (min-width:$lg) {
       height: 75vh;
     }

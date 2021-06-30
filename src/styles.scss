@@ -82,6 +82,7 @@ h6,
 // slider
 .banner-slider {
   .owl-theme .owl-nav [class*=owl-] {
+    margin: 0 !important;
     position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -140,7 +141,9 @@ h6,
     background: white;
   }
 }
-
+.owl-theme .owl-nav{
+  margin: 0 !important;
+}
 .btn{
   color: #ffffff;
   background-color: $sky-blue;
