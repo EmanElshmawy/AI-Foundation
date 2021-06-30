@@ -5,7 +5,7 @@ import { NewsModule } from './news/news.module';
 
 const routes: Routes = [
 {
-    path:'',
+    path:'home',
     component: HomepageComponent
   },
   { path: 'news', loadChildren: () => import('./news/news.module').then(m => m.NewsModule) }

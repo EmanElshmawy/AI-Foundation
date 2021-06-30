@@ -1,10 +1,11 @@
-<section class="banner-slider" (window:resize)="onResize($event)">
-  <owl-carousel-o [options]="owlOptions">
+<section class="banner-slider">
+
+  <owl-carousel-o [options]="owlOptions" >
     <ng-container *ngFor="let data of slideObject">
       <ng-template carouselSlide [id]="'data.id'">
         <figure class="banner-slider__item">
           <!-- <img [src]="data.src" [alt]="data.alt" [title]="data.title"> -->
-          <div style="background: url('{{data.src}}')no-repeat center"></div>
+          <div class={{data.alt}} style="background:rgba(117, 117, 117,0.6)  url('{{data.src}}')no-repeat 0 65%"></div>
         </figure>
       </ng-template>
     </ng-container>

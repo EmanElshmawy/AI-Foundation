@@ -12,7 +12,7 @@
     p {
       color: #fff;
     }
-    @media(min-width:$md) {
+    @media(min-width:$lg) {
       display: none;
     }
   }
@@ -75,7 +75,7 @@
             color: $sky-blue !important;
           }
         }
-        @media (min-width:$md) {
+        @media (min-width:$lg) {
           font-size: 0.8rem;
           margin-bottom: 5px;
         }
@@ -89,7 +89,7 @@
           font-size: 0.8rem;
           font-weight: 600;
 
-          @media (min-width:$md) {
+          @media (min-width:$lg) {
             font-size: 0.8rem;
           }
         }
@@ -104,11 +104,8 @@
       padding: 1rem 0;
 
       h3 {
-        color: #ffffff;
         margin-bottom: 1rem;
         font-size: 1.5rem;
-
-        &:active,
         &:hover {
           color: $sky-blue
         }
@@ -119,9 +116,9 @@
         font-weight: 300;
         font-size: 1.2rem;
 
-        &:active,
+        &.active,
         &:hover {
-          color: $sky-blue
+          color: $sky-blue !important;
         }
       }
 

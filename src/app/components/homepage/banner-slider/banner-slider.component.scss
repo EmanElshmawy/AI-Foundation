@@ -1,39 +1,79 @@
-.banner-slider{
+@import '../../../../variables';
+
+.banner-slider {
   position: relative;
+
   &__item {
-    height: 70vh !important;
+    height: 55vh;
     overflow: hidden;
     position: relative;
 
-    &:after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 22;
-      background: rgba(117, 117, 117, 0.6);
+    @media (min-width:$lg) {
+      height: 75vh;
     }
 
-    img {
-      height: 100% !important;
-      object-fit: cover !important;
-      object-position: center !important;
+    >div {
+      height: 30rem;
+      background-size: cover !important;
+      background-blend-mode: exclusion;
+
+      @media (min-width:$lg) {
+        transform: scale(1);
+        height: 50rem;
+        max-height: 50rem;
+      &.Carousel-1{
+        transform: scale(1.2) translateX(-100px);
+        }
+      }
+
     }
+
+    // &:after {
+    //   content: '';
+    //   position: absolute;
+    //   top: 0;
+    //   left: 0;
+    //   width: 100%;
+    //   height: 100%;
+    //   z-index: 22;
+    //   background: rgba(117, 117, 117, 0.6);
+    // }
   }
 
   &__caption {
     position: absolute;
     top: 0;
     bottom: 0;
-    height: 100%;
-    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    z-index: 33;
+    z-index: 2;
+    text-align: center;
+
+    h1 {
+      font-size: 2rem;
+      @media (min-width:$lg) {
+        font-size: 3rem;
+      }
+    }
+
+    p {
+      width: clamp(45ch, 50%, 30ch);
+      font-size: 1.2rem;
+      line-height: 1.5;
+      font-weight: 300;
+      margin-bottom: 2rem;
+      @media (min-width:$lg) {
+        font-size: 1.5rem;
+      }
+    }
+
+    .btn {
+      font-size: 1rem;
+    }
   }
 
 }

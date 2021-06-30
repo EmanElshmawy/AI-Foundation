@@ -12,7 +12,8 @@
 
 :root {
   font-size: 12px;
-  @media (min-width: $md){
+
+  @media (min-width: $lg) {
     font-size: 14px;
   }
 }
@@ -36,7 +37,8 @@ img {
 a {
   text-decoration: none;
   display: inline-block;
-  &:hover{
+
+  &:hover {
     text-decoration: none;
   }
 }
@@ -70,7 +72,77 @@ h6,
     max-width: 85%;
   }
 }
+
 .dropdown-menu {
   right: 0;
   left: auto;
+}
+
+
+// slider
+.banner-slider {
+  .owl-theme .owl-nav [class*=owl-] {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    z-index: 9999;
+    display: none;
+    @media screen and (min-width: 992px) {
+      display: block;
+    }
+    .nav-btn {
+      width: 20px;
+      height: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    i {
+      font-size: 1rem;
+      color: white;
+    }
+
+    &.owl-next {
+      right: 8%;
+    }
+
+    &.owl-prev {
+      left: 8%;
+    }
+
+    &:hover {
+      background: #D6D6D6;
+
+      i {
+        color: #B1ADAD;
+      }
+    }
+  }
+
+  .owl-theme .owl-dots {
+    position: absolute;
+    bottom: 10%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    span{
+      margin: 4px;
+      background: rgb(255, 255, 255,0.5);
+    }
+  }
+  .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span{
+    height: 15px;
+    width: 15px;
+    background: white;
+  }
+}
+
+.btn{
+  color: #ffffff;
+  background-color: $sky-blue;
+  padding: 0.7rem 1.8rem;
 }

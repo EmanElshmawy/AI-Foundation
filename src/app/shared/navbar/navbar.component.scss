@@ -22,7 +22,7 @@
 
     li {
       margin: 0 5px;
-      @media(min-width:$md) {
+      @media(min-width:$lg) {
         margin: 0 15px;
       }
     }
@@ -34,13 +34,13 @@
     justify-content: flex-end;
 
 
-    @media(min-width:$md) {
-      width: 200px;
+    @media(min-width:$lg) {
+      width: 300px;
     }
 
     .form-group {
       overflow: hidden;
-      @include transition-duration(0.3s);
+      @include transition-duration(0.4s);
       @include transition-timing-function(ease-in-out);
       width: 0;
       margin-bottom: 0 !important;
@@ -97,7 +97,7 @@
     p {
       color: #fff;
     }
-    @media(min-width:$md){
+    @media(min-width:$lg){
       display: flex;
     }
   }
@@ -202,7 +202,7 @@
     width: 50%;
   }
 
-  @media(min-width: $md) {
+  @media(min-width: $lg) {
     width: 30%;
   }
 
