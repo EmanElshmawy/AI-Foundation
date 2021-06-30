@@ -1,0 +1,82 @@
+@import '../../../variables';
+@import '../../../mixins';
+
+
+.footer {
+  padding: 50px 0 20px;
+  background: $lightGrey;
+
+  h3 {
+    color: $textGrey;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  &__contactUs,
+  &__links {
+    margin-bottom: 2rem;
+
+    li {
+      margin-bottom: 0.5rem;
+
+      a {
+        font-size: 0.9rem;
+        color: $textGrey;
+      }
+    }
+  }
+
+  &__subscribe {
+    margin-bottom: 2rem;
+
+    .form-group {
+      position: relative;
+      width: 80%;
+
+      .form-control {
+        font-size: 0.8rem;
+        padding: 1.3rem 2rem;
+        background: $inpurBG;
+      }
+
+      button {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 0.7rem 1rem;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        font-size: 0.8rem;
+
+      }
+    }
+
+  }
+
+  &__follow {}
+
+  &__follow-icons {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+
+    li {
+      margin-right: 25px;
+      a {
+        color: $textGrey;
+
+        i {
+          font-size: 1.2rem;
+        }
+
+        img {
+          width: 2rem;
+        }
+      }
+
+    }
+  }
+}
