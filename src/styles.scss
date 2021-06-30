@@ -9,10 +9,33 @@
 
 
 // general style
+
+:root {
+  font-size: 14px;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans';
+  font-weight: normal;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+  &:hover{
+    text-decoration: none;
+  }
 }
 
 ul {
@@ -20,6 +43,20 @@ ul {
   margin-bottom: 0;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-weight: 400;
+}
 
 .container,
 .container-sm,
@@ -27,7 +64,6 @@ ul {
 .container-lg,
 .container-xl {
   @media (min-width: 1200px) {
-    max-width: 1200px;
+    max-width: 85%;
   }
 }
-

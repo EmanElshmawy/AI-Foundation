@@ -1,4 +1,4 @@
-<nav class="navbar">
+<nav class="navbar fixed-top">
   <div class="container">
     <div class="navbar__menu-btn">
       <div (click)='collapseMenu=!collapseMenu' class="menu">
@@ -6,20 +6,23 @@
       </div>
     </div>
     <a href="" class="navbar__logo">
-      <img class="img-fluid" src="../../../assets/img/shared/logo.png" alt="">
+      <img class="img-fluid" src="../../../assets/img/shared/logo.svg" alt="">
     </a>
     <ul class="navbar__links">
       <li class="navbar__search">
         <div [ngClass]="{'searchCollapse': collapseSearch}" class="form-group">
           <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="Search">
-          <i class="fas fa-search" (click)="searchCollapse()">
-          </i>
         </div>
+        <div class="search">
+          <img src="../../../assets/img/shared/ic_search_24px.svg" alt=""  (click)="searchCollapse()">
+        </div>
+        <a class="toats">setting</a>
       </li>
       <ul class="notification">
         <li class="dropdown">
           <a type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="far fa-bell"></i> </a>
+            <img src="../../../assets/img/shared/notification.svg" alt="">
+          </a>
           <ul class="dropdown-menu" aria-labelledby="triggerId">
             <li>
               <h6 class="dropdown-item">recent notification</h6>
@@ -33,13 +36,12 @@
           </ul>
         </li>
         <a class="toats">setting</a>
-
       </ul>
-      <li class="user align-items-center">
-        <img src="../../../assets/img.png" alt="">
+      <li class="navbar__profile align-items-center">
+        <img src="../../../assets/img/shared/img.png" alt="">
         <p>User name</p>
       </li>
-      <li class="setting">
+      <li class="navbar__setting">
         <div class="dropdown">
           <a type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-cog"></i>
@@ -48,7 +50,6 @@
             <li><a href="#"></a></li>
           </ul>
         </div>
-
         <a class="toats">setting</a>
       </li>
     </ul>

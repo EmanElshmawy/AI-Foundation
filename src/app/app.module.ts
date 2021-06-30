@@ -6,7 +6,6 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { SharedModule } from './shared/shared.module';
 import { ComponentsModule } from './components/components.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,7 +16,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     AppRoutingModule,
     NgxPaginationModule,
     NgbModule,
-    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent],

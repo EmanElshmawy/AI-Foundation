@@ -1,110 +1,114 @@
 @import "../../../variables";
-.followus {
-    border-right: 2px solid #088d9c;
-    width: 30%;
-    height: 100vh;
-    position: relative;
-    text-align: center;
-    .follow-icons {
-        display: flex;
-        flex-flow: column;
-        position: absolute;
-        bottom: 12%;
-        left: 45%;
-        right: 45%;
-        a {
-            color: #ffffff;
-            padding: 0.5rem 0;
-            img {
-                width: 1.5rem;
-            }
-            i {
-                font-size: 1.5rem;
-            }
-        }
-    }
-    @media screen and (min-width:768px) {
-        width: 25%;
-        .follow-icons {
-            a {
-                padding: 0.8rem 0;
-                img {
-                    width: 1.5rem;
-                }
-                i {
-                    font-size: 1.5rem;
-                }
-            }
-        }
-    }
-    @media screen and (min-width:768px) {
-        width: 25%;
-        .follow-icons {
-            a {
-                padding: 1rem 0;
-                img {
-                    width: 2rem;
-                }
-                i {
-                    font-size: 2rem;
-                }
-            }
-        }
-    }
-}
 
-ul {
-    margin-left: 5%;
-    padding: 5% 0;
+.sidebar {
+  display: flex;
+  min-height: 91vh;
+  &__social {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0.5rem;
+
+    a {
+      color: #ffffff;
+      padding: 0.5rem 0;
+
+      i {
+        font-size: 1.5rem;
+      }
+
+      &:hover {
+        color: $sky-blue
+      }
+    }
+
+    @media screen and (min-width:768px) {
+      width: 25%;
+
+      a {
+        padding: 0.8rem 0;
+
+        i {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+
+  &__links {
+    border-left: 1px solid $lightWhite;
+    padding: 3rem 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+
     li {
-        display: flex;
-        flex-flow: column;
-        padding: 1rem 0;
-        h3 {
-            color: #ffffff;
-            margin-bottom: 1rem;
-            &:active {
-                color: $btnColor;
-            }
+      h3 {
+        color: #ffffff;
+        margin-bottom: 1rem;
+
+        &:active {
+          color: $sky-blue;
         }
+      }
+
+      a {
+        color: #E3E3E3;
+        font-weight: 300;
+        font-size: 0.8rem;
+        display: block;
+
+        &:active {
+          color: $sky-blue;
+        }
+      }
+
+      &:last-child {
+        margin-top: auto;
+
         a {
-            color: #E3E3E3;
-            font-weight: 300;
-            font-size: 1.5rem;
-            &:active {
-                color: $btnColor;
-            }
+          font-size: 0.8rem;
+          font-weight: 600;
         }
-        &:last-child {
-            position: absolute;
-            bottom: 10%;
-        }
+      }
+
     }
-    @media screen and (min-width:992px) {
-        li {
-            display: flex;
-            flex-flow: column;
-            padding: 2rem 0;
-            h3 {
-                color: #ffffff;
-                margin-bottom: 1rem;
-                font-size: 2rem;
-                &:active {
-                    color: $btnColor;
-                }
-            }
-            a {
-                color: #E3E3E3;
-                font-weight: 300;
-                font-size: 1.8rem;
-                &:active {
-                    color: $btnColor;
-                }
-            }
-            &:last-child {
-                position: absolute;
-                bottom: 10%;
-            }
+  }
+
+
+  @media screen and (min-width:992px) {
+    li {
+      padding: 1rem 0;
+
+      h3 {
+        color: #ffffff;
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+
+        &:active,
+        &:hover {
+          color: $sky-blue
         }
+      }
+
+      a {
+        color: #E3E3E3;
+        font-weight: 300;
+        font-size: 1.2rem;
+
+        &:active,
+        &:hover {
+          color: $sky-blue
+        }
+      }
+
+      &:last-child {
+        a {
+          font-size: 1.5rem;
+          font-weight: 400;
+        }
+      }
     }
+  }
 }
