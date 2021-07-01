@@ -17,7 +17,9 @@ export class SharedNewsComponent implements OnInit {
 
   ngOnInit(): void {
     this.checkCurrentRoute();
-    this.NewsList.sort(this.sortFunction);
+    if(this.NewsList){
+      this.NewsList.sort(this.sortFunction);
+    }
   }
   sortFunction(
     a: { date: string | number | Date },
