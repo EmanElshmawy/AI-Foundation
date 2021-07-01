@@ -44,7 +44,7 @@ export class SharedNewsComponent implements OnInit {
   }
 
   checkCurrentRoute() {
-    if (this.route.snapshot.routeConfig?.path == 'home' || this.route.snapshot.routeConfig?.path == '') {
+    if (this.route.snapshot.routeConfig?.path == 'home') {
       this.isHome = true;
     }
   }
