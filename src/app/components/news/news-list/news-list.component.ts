@@ -37,9 +37,21 @@ export class NewsListComponent implements OnInit, OnDestroy {
     this.displayNews();
     this.displayCategories();
   }
-
   /* -------------------------------------------------------------------------- */
-  /*                          display Accounts Details                          */
+  /*                                 date formate                           */
+  /* -------------------------------------------------------------------------- */
+
+  formatDateFun(date: any) {
+    const d = new Date(date);
+    let month = '' + (d.getMonth() + 1);
+    let day = '' + d.getDate();
+    const year = d.getFullYear();
+    if (month.length < 2) month = '0' + month;
+    if (day.length < 2) day = '0' + day;
+    return [year, month, day].join('-');
+  }
+  /* -------------------------------------------------------------------------- */
+  /*                          display News                           */
   /* -------------------------------------------------------------------------- */
 
   displayNews() {
@@ -54,11 +66,9 @@ export class NewsListComponent implements OnInit, OnDestroy {
           // this.allNews.sort(this.sortFunction);
           this.resetRows = this.allNews;
           console.log(this.allNews);
-
         },
         (error) => {
           console.log(error);
-
         }
       );
   }
@@ -81,37 +91,33 @@ export class NewsListComponent implements OnInit, OnDestroy {
       );
   }
 
-  // sortFunction(
-  //   a: { date: string | number | Date },
-  //   b: { date: string | number | Date }
-  // ) {
-
-  //   var dateA = new Date(this.formatDateFun(a.date)).getTime();
-  //   var dateB = new Date(this.formatDateFun(b.date)).getTime();
-  //   return dateA < dateB ? 1 : -1;
-  // }
-
-  sortBynameAtoZ(a:any, b:any) {
+  /* -------------------------------------------------------------------------- */
+  /*                          sort Ato Z                                       */
+  /* -------------------------------------------------------------------------- */
+  sortBynameAtoZ(a: any, b: any) {
     var dateA = a.title;
     var dateB = b.title;
     return dateA > dateB ? 1 : -1;
-  }
-  sortBynameZtoA(a: any, b: any) {
-    var dateA = a.title;
-    var dateB = b.title;
-    return dateA < dateB ? 1 : -1;
   }
 
   sortAsc() {
     this.allNews.sort(this.sortBynameAtoZ);
   }
 
+  /* -------------------------------------------------------------------------- */
+  /*                          sort z to A                                      */
+  /* -------------------------------------------------------------------------- */
+  sortBynameZtoA(a: any, b: any) {
+    var dateA = a.title;
+    var dateB = b.title;
+    return dateA < dateB ? 1 : -1;
+  }
   sortDesc() {
     this.allNews.sort(this.sortBynameZtoA);
   }
-
-  // filter by categories
-
+  /* -------------------------------------------------------------------------- */
+  /*                          search by Cateegory                         */
+  /* -------------------------------------------------------------------------- */
   searchByCategory() {
     this.allNews = this.resetRows;
     let category = this.searchForm.controls.category.value;
@@ -129,7 +135,9 @@ export class NewsListComponent implements OnInit, OnDestroy {
     });
     this.allNews = filteredData;
   }
-  // filter by name
+  /* -------------------------------------------------------------------------- */
+  /*                                   search                                   */
+  /* -------------------------------------------------------------------------- */
 
   search(event: any) {
     if (event.keyCode === 13) {
@@ -149,12 +157,15 @@ export class NewsListComponent implements OnInit, OnDestroy {
       this.allNews = this.resetRows;
     }
   }
+  /* --------------------------------------------------------------------- */
+  /*                            search  by date                            */
+  /* --------------------------------------------------------------------- */
   searchByDate() {
     this.allNews = this.resetRows;
     let fromDate = this.searchForm.controls.start_date.value;
     let toDate = this.searchForm.controls.end_date.value;
 
-    let filterDate = this.allNews.filter( (e: any) => {
+    let filterDate = this.allNews.filter((e: any) => {
       let articleDate = this.formatDateFun(e.publishedAt);
       if (fromDate && toDate) {
         return articleDate >= fromDate && articleDate <= toDate;
@@ -167,19 +178,12 @@ export class NewsListComponent implements OnInit, OnDestroy {
     if (fromDate == '' || toDate == '') {
       this.allNews = this.resetRows;
     }
-
   }
+  /* -------------------------------------------------------------------------- */
+  /*                          reset the filter                           */
+  /* -------------------------------------------------------------------------- */
 
-formatDateFun(date:any) {
-    const d = new Date(date);
-    let month = "" + (d.getMonth() + 1);
-    let day = "" + d.getDate();
-    const year = d.getFullYear();
-    if (month.length < 2) month = "0" + month;
-    if (day.length < 2) day = "0" + day;
-    return [year, month, day].join("-");
-  }
-  resetFilter(){
+  resetFilter() {
     this.allNews = this.resetRows;
     this.searchForm.reset();
   }
