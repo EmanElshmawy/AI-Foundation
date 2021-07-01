@@ -73,13 +73,11 @@ h6,
     max-width: 85%;
   }
 }
-
+//dropdoen
 .dropdown-menu {
   right: 0;
   left: auto;
 }
-
-
 // slider
 .banner-slider {
   .owl-theme .owl-nav [class*=owl-] {
@@ -145,8 +143,33 @@ h6,
 .owl-theme .owl-nav{
   margin: 0 !important;
 }
+
+// btns
 .btn{
   color: #ffffff;
   background-color: $sky-blue;
   padding: 0.7rem 1.8rem;
+}
+.text-primary{
+  color: $primary;
+}
+// bread crumb
+.breadcrumb {
+  background: transparent;
+  padding: 0;
+
+  .breadcrumb-item {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+
+    &+.breadcrumb-item::before {
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      content: "\f054";
+      display: flex;
+      align-items: center;
+      line-height: 1;
+    }
+  }
 }

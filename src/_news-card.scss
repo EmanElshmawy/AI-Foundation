@@ -29,6 +29,7 @@
   .card-share {
     display: flex;
     justify-content: flex-end;
+    flex-wrap: wrap;
 
     >div {
       margin: 5px;

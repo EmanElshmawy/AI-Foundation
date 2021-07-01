@@ -6,10 +6,33 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./news-list.component.scss']
 })
 export class NewsListComponent implements OnInit {
-
+  categories: any = [];
   constructor() { }
 
   ngOnInit(): void {
   }
+  sortFunction() {
 
+  };
+
+  sortBynameAtoZ(){
+
+  }
+  sortBynameZtoA(){
+
+  }
+
+  sortAsc(){
+
+  }
+
+  sortDesc(){
+
+  }
+
+  searchByCategory() {
+  }
+  searchByName(){
+
+  }
 }

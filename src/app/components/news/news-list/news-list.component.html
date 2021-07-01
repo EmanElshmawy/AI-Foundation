@@ -1,2 +1,104 @@
-<p>news-list works!</p>
-<h1>i am here </h1>
+<section class="news">
+  <div class="container">
+    <nav class="breadcrumb">
+      <a class="breadcrumb-item text-primary" routerLink=''>Home</a>
+      <a class="breadcrumb-item text-secondary">News</a>
+    </nav>
+    <h1>News</h1>
+    <div class="news__search-wrapper">
+      <div class="row">
+        <div class="col-6 col-lg-2 order-2 order-lg-1">
+          <div class="form-group d-flex flex-column">
+            <label>From</label>
+            <input type="date" class="form-control" aria-describedby="start date">
+          </div>
+        </div>
+        <div class="col-6 col-lg-2 order-3 order-lg-2">
+          <div class="form-group d-flex flex-column">
+            <label>To</label>
+            <input type="date" class="form-control" aria-describedby="end date">
+          </div>
+
+        </div>
+        <div class="col-6  col-lg-2 order-4 order-lg-3">
+          <div class="form-group d-flex flex-column">
+            <label>Category</label>
+            <select #categoryFilter class="form-control" aria-placeholder="select category">
+              <option value="">select category</option>
+              <option *ngFor="let category of categories">{{category.name}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-12 order-1 order-lg-4 col-lg-4 search">
+          <div class="form-group">
+            <input #newsSearch type="text" class="searchInput form-control" aria-describedby="search"
+              placeholder="search">
+            <button type="submit" class="btn"><i class="fas fa-search"></i></button>
+          </div>
+        </div>
+        <div class="col-6 order-5 col-lg-2 sortDropdown">
+          <div class="form-group dropdown open">
+            <a class="sort" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              Sort by <i class="fas fa-exchange-alt fa-1x"></i>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="triggerId">
+              <button class="dropdown-item" (click)='sortAsc()'>A to Z</button>
+              <div class="dropdown-divider"></div>
+              <button class="dropdown-item" (click)='sortDesc()'>Z to A</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="news__items-wrapper">
+      <div class="row">
+        <div class="col-md-6 col-lg-4">
+          <!-- start -->
+          <div class="card">
+            <!-- img -->
+            <div class="card-img">
+              <img src="../../../../assets/img/blog.svg" alt="">
+            </div>
+            <div class="card-body">
+                       <!-- links -->
+            <div class="card-share text-right">
+              <div class="favorite-icon">
+                <input type="checkbox" />
+                <i class="far fa-heart"></i>
+                <i class="favorite fas fa-heart"></i>
+              </div>
+              <div class="card-dropdown">
+                <span class="social dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                  aria-expanded="false">
+                  <i class="fas fa-share-alt fa-3x"></i></span>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item bg-primary text-white">
+                    <i class="fab text-white fa-facebook-f"></i>
+                  </a>
+                  <a class="dropdown-item bg-info text-white">
+                    <i class="text-white fab fa-twitter"></i>
+                  </a>
+                  <a class="dropdown-item bg-danger">
+                    <i class="text-white fas fa-envelope"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <!-- body -->
+              <a href="/news/details">
+                <h3 class="card-title">President El Sisi Unveils “Egypt Vision 2030” Sustainabl...</h3>
+              <span class="badge">News</span>
+            </a>
+              <p>If you prefer to have a more personalized tour of the Grand Egyptian Museum, you can
+                choose one of the thematic tours in Guided Tours, and we can provide a private tour with one of our best
+                ...</p>
+              <div class="date"><i class="far fa-calendar-alt fa-1x"></i>Wed 12 Aug 2020</div>
+            </div>
+          </div>
+          <!-- end -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
