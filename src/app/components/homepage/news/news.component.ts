@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { takeUntil } from "rxjs/operators";
-import { Subject, Subscription } from "rxjs";
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { takeUntil } from 'rxjs/operators';
+import { Subject, Subscription } from 'rxjs';
 import { NewsService } from '../../../services/news.service';
 
 @Component({
@@ -9,13 +9,13 @@ import { NewsService } from '../../../services/news.service';
   templateUrl: './news.component.html',
   styleUrls: ['./news.component.scss'],
 })
-export class NewsComponent implements OnInit, OnDestroy   {
+export class NewsComponent implements OnInit, OnDestroy {
   unsubscribe$ = new Subject<void>();
-  NewsList : any;
+  NewsList: any =[];
+  homeNewList: any =[];
 
   constructor(private http: HttpClient, private newsService: NewsService) {
     subscription: Subscription;
-
   }
   ngOnInit(): void {
     this.displayNews();
@@ -31,18 +31,36 @@ export class NewsComponent implements OnInit, OnDestroy   {
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(
         (data) => {
-          console.log(data)
+          console.log(data);
           this.NewsList = data;
+          this.NewsList.forEach(
+            (article: { showOnHomepage: boolean; description: any }) => {
+              if (article.showOnHomepage === true && article.description !== ''
+              ) {
+                console.log(article);
+
+                this.homeNewList.push(article);
+              }
+            }
+          );
+
+          this.homeNewList.sort(this.sortFunction);
         },
         (error) => {
           console.log(error);
         }
       );
   }
+  sortFunction(
+    a: { publishedAt: string | number | Date },
+    b: { publishedAt: string | number | Date }
+  ) {
+    var dateA = new Date(a.publishedAt).getTime();
+    var dateB = new Date(b.publishedAt).getTime();
+    return dateA < dateB ? 1 : -1;
+  }
   ngOnDestroy() {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
   }
 }
-
-

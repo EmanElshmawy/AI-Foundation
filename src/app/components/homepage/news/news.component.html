@@ -1,3 +1,4 @@
+
 <section class="latest-news">
   <div class="container">
     <div class="latest-news__header">
@@ -6,50 +7,6 @@
        View all <i class="fas fa-long-arrow-alt-right fa-1x"></i>
     </a>
     </div>
-    <div class="row">
-      <div class="col-md-6 col-lg-4" *ngFor="let article of NewsList let i = index">
-        <!-- start -->
-        <div class="card">
-          <!-- img -->
-          <div class="card-img">
-            <img src="{{article.urlToImage}}" alt="">
-          </div>
-          <div class="card-body">
-                     <!-- links -->
-          <div class="card-share text-right">
-            <div class="favorite-icon">
-              <input type="checkbox" />
-              <i class="far fa-heart"></i>
-              <i class="favorite fas fa-heart"></i>
-            </div>
-            <div class="card-dropdown">
-              <span class="social dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false">
-                <i class="fas fa-share-alt fa-3x"></i></span>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item bg-primary text-white">
-                  <i class="fab text-white fa-facebook-f"></i>
-                </a>
-                <a class="dropdown-item bg-info text-white">
-                  <i class="text-white fab fa-twitter"></i>
-                </a>
-                <a class="dropdown-item bg-danger">
-                  <i class="text-white fas fa-envelope"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-          <!-- body -->
-            <a href="#">
-              <h3 class="card-title">{{article.title}}</h3>
-            <span class="badge">News</span>
-          </a>
-            <p>{{article.description ? article.description : 'this article has no description ....'}}</p>
-            <div class="date"><i class="far fa-calendar-alt fa-1x"></i>{{article.publishedAt}}</div>
-          </div>
-        </div>
-        <!-- end -->
-      </div>
+      <app-shared-news [NewsList]="homeNewList"></app-shared-news>
     </div>
-  </div>
 </section>

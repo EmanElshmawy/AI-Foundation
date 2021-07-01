@@ -15,7 +15,7 @@ const routes: Routes = [
     component:SingleNewsComponent
   },
   {
-    path:'details/:id/:id',
+    path:'news/details/:id',
     redirectTo:"details/:id",
     pathMatch:'full'
   }

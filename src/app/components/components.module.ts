@@ -6,7 +6,8 @@ import { NewsComponent } from './homepage/news/news.component';
 import { BannerSliderComponent } from './homepage/banner-slider/banner-slider.component';
 import { ServicesComponent } from './homepage/services/services.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SharedModule } from '../shared/shared.module';
+
 @NgModule({
   declarations: [
     HomepageComponent,
@@ -18,7 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CommonModule,
     CarouselModule,
     ComponentsRoutingModule,
-    BrowserAnimationsModule,
+    SharedModule
   ],
   exports: [HomepageComponent],
 })

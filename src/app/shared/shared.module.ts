@@ -6,6 +6,7 @@ import { FooterComponent } from './footer/footer.component';
 import { CopywriteComponent } from './copywrite/copywrite.component';
 import {RouterModule} from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SharedNewsComponent } from './shared-news/shared-news.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     SidebarComponent,
     FooterComponent,
     CopywriteComponent,
+    SharedNewsComponent,
   ],
   imports: [CommonModule,
     RouterModule,
@@ -22,6 +24,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     SidebarComponent,
     FooterComponent,
     CopywriteComponent,
+    SharedNewsComponent
   ]
 })
 export class SharedModule {}

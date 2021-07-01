@@ -3,14 +3,15 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
-export class NewsService {
+export class CategoriesService {
   baseUrl = environment.url;
 
   constructor(private http: HttpClient) {}
 
-  getNews() {
-    return this.http.get(`${this.baseUrl}e2534d5412765bf36702/articles`);
+  getCategories() {
+    return this.http.get(`${this.baseUrl}c138bb84dc0b94ec5a18/sourceCategory`);
   }
+
 }
