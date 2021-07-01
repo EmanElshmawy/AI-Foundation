@@ -2,6 +2,9 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.0.
 
+## project link
+https://ai-foundation.netlify.app/
+
 ## steps for download the project 
 ## First Step
 git clone https://github.com/EmanElshmawy/AI-Foundation.git
