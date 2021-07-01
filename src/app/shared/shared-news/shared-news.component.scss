@@ -2,10 +2,62 @@
 @import '../../../mixins';
 @import '../../../news-card';
 
-  .card{
-    height: 100%;
-  }
-  [class*="col-lg"]{
-    margin-bottom: 40px;
-  }
+.card {
+  height: 100%;
+}
 
+[class*="col-lg"] {
+  margin-bottom: 40px;
+}
+
+.my-pagination {
+  ::ng-deep {
+    .ngx-pagination {
+      display: flex;
+      justify-content: center;
+
+      li {
+        background-color: #ffff;
+        border-radius: 5px;
+        margin: 5px;
+        height: 40px !important;
+        width: 40px !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+          background-color: $sky-blue !important;
+          color: #fff !important;
+        }
+
+        span {
+          // padding: 0.2rem 0.5rem !important;
+        }
+
+      }
+      a:hover, button:hover{
+        background-color: transparent !important;
+      }
+      .small-screen {
+        display: none !important;
+      }
+
+      .current {
+        // padding: 1rem 1.5rem;
+        background-color: $sky-blue;
+        // font-size: 1.2rem;
+      }
+    }
+  }
+}
+::ng-deep .ngx-pagination .pagination-previous a::before,  ::ng-deep .ngx-pagination .pagination-previous.disabled::before{
+  content: "\f104" !important;
+  font-family: "Font Awesome 5 Free";
+  font-weight:600;
+}
+::ng-deep .ngx-pagination .pagination-next a::after,   ::ng-deep.ngx-pagination .pagination-next.disabled::after{
+  content: "\f105" !important;
+  font-family: "Font Awesome 5 Free";
+  font-weight:600;
+}

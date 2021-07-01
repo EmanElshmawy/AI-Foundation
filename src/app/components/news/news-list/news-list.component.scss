@@ -87,35 +87,3 @@
   }
 }
 
-.my-pagination {
-  ::ng-deep {
-     .ngx-pagination {
-         li {
-             background-color: #ffff;
-             border-radius: 5px;
-             margin: 10px;
-             padding: 1rem 1.5rem;
-             &:hover {
-                 background-color: $btnColor !important;
-             }
-             span {
-                 font-size: 1.5rem;
-             }
-             .show-for-sr {
-                 font-size: 1.5rem;
-             }
-             .pagination-previous {
-                 padding: 0;
-                 a {
-                     display: inline;
-                 }
-             }
-         }
-         .current {
-             padding: 1rem 1.5rem;
-             background-color: $btnColor;
-             font-size: 1.2rem;
-         }
-     }
- }
-}

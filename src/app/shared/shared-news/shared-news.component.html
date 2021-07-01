@@ -45,5 +45,6 @@
   </div>
 </div>
 <div class="w-50 m-auto text-center pb-5" *ngIf="NewsList.length !== 0 && !isHome">
-  <pagination-controls class="my-pagination" (pageChange)="p = $event"></pagination-controls>
+  <pagination-controls class="my-pagination" (pageChange)="p = $event" previousLabel=""
+  nextLabel=""></pagination-controls>
 </div>
