@@ -5,7 +5,6 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
 import { CopywriteComponent } from './copywrite/copywrite.component';
 import {RouterModule} from '@angular/router';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedNewsComponent } from './shared-news/shared-news.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 
@@ -19,7 +18,6 @@ import { NgxPaginationModule } from 'ngx-pagination';
   ],
   imports: [CommonModule,
     RouterModule,
-    NgbModule,
     NgxPaginationModule
   ],
   exports:[

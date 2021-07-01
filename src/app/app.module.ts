@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SharedModule } from './shared/shared.module';
 import { ComponentsModule } from './components/components.module';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 import {RouterModule} from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -18,7 +18,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     AppRoutingModule,
     NgxPaginationModule,
-    NgbModule,
     RouterModule,
     HttpClientModule,
     BrowserAnimationsModule
