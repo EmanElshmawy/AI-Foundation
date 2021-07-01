@@ -1,6 +1,7 @@
 @import '../../../../variables';
 @import '../../../../mixins';
 @import '../../../../news-card';
+
 .latest-news {
   padding: 50px 0;
 
@@ -29,7 +30,8 @@
         @include transition-duration(0.2s);
         @include transition-timing-function(ease-in-out);
       }
-      &:hover{
+
+      &:hover {
         i {
           margin-left: 10px;
         }
@@ -37,4 +39,7 @@
     }
   }
 
+  &____content {
+    position: relative;
+  }
 }

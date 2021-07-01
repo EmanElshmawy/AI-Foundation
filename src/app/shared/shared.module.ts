@@ -7,6 +7,7 @@ import { CopywriteComponent } from './copywrite/copywrite.component';
 import {RouterModule} from '@angular/router';
 import { SharedNewsComponent } from './shared-news/shared-news.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     FooterComponent,
     CopywriteComponent,
     SharedNewsComponent,
+    LoadingSpinnerComponent,
   ],
   imports: [CommonModule,
     RouterModule,
@@ -25,7 +27,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     SidebarComponent,
     FooterComponent,
     CopywriteComponent,
-    SharedNewsComponent
+    SharedNewsComponent,
+    LoadingSpinnerComponent
   ]
 })
 export class SharedModule {}

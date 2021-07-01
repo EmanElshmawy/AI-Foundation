@@ -11,8 +11,9 @@ import { NewsService } from '../../../services/news.service';
 })
 export class NewsComponent implements OnInit, OnDestroy {
   unsubscribe$ = new Subject<void>();
-  NewsList: any =[];
-  homeNewList: any =[];
+  NewsList: any = [];
+  homeNewList: any = [];
+  isLoading = false;
 
   constructor(private http: HttpClient, private newsService: NewsService) {
     subscription: Subscription;
@@ -22,10 +23,11 @@ export class NewsComponent implements OnInit, OnDestroy {
   }
 
   /* -------------------------------------------------------------------------- */
-  /*                          display Accounts Details                             */
+  /*                          display news                                   */
   /* -------------------------------------------------------------------------- */
 
   displayNews() {
+    // this.isLoading = true;
     this.newsService
       .getNews()
       .pipe(takeUntil(this.unsubscribe$))
@@ -34,20 +36,27 @@ export class NewsComponent implements OnInit, OnDestroy {
           this.NewsList = data;
           this.NewsList.forEach(
             (article: { showOnHomepage: boolean; description: any }) => {
-              if (article.showOnHomepage === true && article.description !== ''
+              if (
+                article.showOnHomepage === true &&
+                article.description !== ''
               ) {
                 this.homeNewList.push(article);
               }
             }
           );
+          this.isLoading = false;
 
           this.homeNewList.sort(this.sortFunction);
         },
         (error) => {
+          this.isLoading = false;
           console.log(error);
         }
       );
   }
+  /* -------------------------------------------------------------------------- */
+  /*                          data sort                                      */
+  /* -------------------------------------------------------------------------- */
   sortFunction(
     a: { publishedAt: string | number | Date },
     b: { publishedAt: string | number | Date }

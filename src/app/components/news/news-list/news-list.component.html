@@ -55,7 +55,10 @@
 
     </div>
     <div class="news__items-wrapper">
-      <app-shared-news [NewsList]="allNews"></app-shared-news>
+        <div *ngIf="isLoading">
+          <app-loading-spinner></app-loading-spinner>
+        </div>
+      <app-shared-news [NewsList]="allNews" *ngIf="!isLoading"></app-shared-news>
     </div>
   </div>
 </section>

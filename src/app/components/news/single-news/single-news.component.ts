@@ -15,7 +15,7 @@ export class SingleNewsComponent implements OnInit, OnDestroy {
   NewsList: any =[];
   articleDetails :any = {};
   category: any ;
-
+  isLoading = false;
   constructor(
     private http: HttpClient,
     private newsService: NewsService,
@@ -31,6 +31,7 @@ export class SingleNewsComponent implements OnInit, OnDestroy {
   /*                          display Accounts Details                             */
   /* -------------------------------------------------------------------------- */
   displayArticle() {
+    this.isLoading = true;
     this.newsService
       .getNewById(this.route.snapshot.params["id"])
       .pipe(takeUntil(this.unsubscribe$))
@@ -38,9 +39,11 @@ export class SingleNewsComponent implements OnInit, OnDestroy {
         (data) => {
           this.articleDetails = data;
           this.displayCategory( this.articleDetails.sourceID)
+          this.isLoading = false;
         },
         (error) => {
           console.log(error);
+          this.isLoading = false;
         }
       );
   }

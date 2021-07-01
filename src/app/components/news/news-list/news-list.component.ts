@@ -18,6 +18,7 @@ export class NewsListComponent implements OnInit, OnDestroy {
   filterNews: any = [];
   searchForm: FormGroup;
   resetRows: any;
+  isLoading = false;
 
   constructor(
     private http: HttpClient,
@@ -55,6 +56,8 @@ export class NewsListComponent implements OnInit, OnDestroy {
   /* -------------------------------------------------------------------------- */
 
   displayNews() {
+    this.isLoading = true;
+
     this.newsService
       .getNews()
       .pipe(takeUntil(this.unsubscribe$))
@@ -63,9 +66,13 @@ export class NewsListComponent implements OnInit, OnDestroy {
           this.allNews = data;
           // this.allNews.sort(this.sortFunction);
           this.resetRows = this.allNews;
+          this.isLoading = false;
+
         },
         (error) => {
           console.log(error);
+          this.isLoading = false;
+
         }
       );
   }
