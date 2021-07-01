@@ -60,12 +60,9 @@ export class NewsListComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(
         (data) => {
-          console.log(data);
-
           this.allNews = data;
           // this.allNews.sort(this.sortFunction);
           this.resetRows = this.allNews;
-          console.log(this.allNews);
         },
         (error) => {
           console.log(error);
@@ -152,7 +149,6 @@ export class NewsListComponent implements OnInit, OnDestroy {
       return e['title'].toLowerCase().includes(term.toLowerCase());
     });
     this.allNews = filterArr;
-    console.log(this.allNews);
     if (term == '') {
       this.allNews = this.resetRows;
     }
@@ -172,7 +168,6 @@ export class NewsListComponent implements OnInit, OnDestroy {
       }
       return true;
     });
-    console.log(filterDate);
 
     this.allNews = filterDate;
     if (fromDate == '' || toDate == '') {

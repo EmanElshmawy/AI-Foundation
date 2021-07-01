@@ -36,7 +36,6 @@ export class SingleNewsComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(
         (data) => {
-          console.log(data);
           this.articleDetails = data;
           this.displayCategory( this.articleDetails.sourceID)
         },
@@ -51,7 +50,6 @@ export class SingleNewsComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(
         (data : any) => {
-          console.log(data);
           // this.articleDetails = data;
           this.category = data['name'];
         },
