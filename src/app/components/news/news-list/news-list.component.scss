@@ -53,6 +53,7 @@
 
       i {
         transform: rotate(90deg);
+        margin-left: 0.5rem;
       }
 
       &:focus-within {
@@ -66,7 +67,7 @@
       }
 
       @media screen and (min-width:1024px) {
-        padding: 1rem;
+        padding: 1rem 1.5rem;
         font-size: 1rem;
       }
     }

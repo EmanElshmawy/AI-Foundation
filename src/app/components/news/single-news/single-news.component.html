@@ -1,51 +1,51 @@
 <section class="news-details">
-<div class="container">
-  <nav class="breadcrumb">
-    <a class="breadcrumb-item text-primary" routerLink=''>Home</a>
-    <a class="breadcrumb-item text-primary" routerLink='/news'>News</a>
-    <a class="breadcrumb-item text-secondary" >News Details</a>
-  </nav>
-  <h1>News Details</h1>
-       <!-- start -->
-       <div class="card">
-        <!-- img -->
-        <div class="card-img">
-          <img [src]="articleDetails.urlToImage" [alt]="articleDetails.title">
-        </div>
-        <div class="card-body">
-                   <!-- links -->
+  <div class="container">
+    <nav class="breadcrumb">
+      <a class="breadcrumb-item text-primary" routerLink=''>Home</a>
+      <a class="breadcrumb-item text-primary" routerLink='/news'>News</a>
+      <a class="breadcrumb-item text-secondary">News Details</a>
+    </nav>
+    <h1>News Details</h1>
+    <!-- start -->
+    <div class="card">
+      <!-- img -->
+      <div class="card-img">
+        <img [src]="articleDetails.urlToImage" [alt]="articleDetails.title">
+      </div>
+      <div class="card-body">
+        <!-- links -->
         <div class="card-share text-right">
           <h4>{{category}}</h4>
           <h3 class="card-title">{{articleDetails.title}}</h3>
           <div class="socail">
-          <div class="favorite-icon">
-            <input type="checkbox" />
-            <i class="far fa-heart"></i>
-            <i class="favorite fas fa-heart"></i>
-          </div>
-          <div class="card-dropdown">
-            <span class="social dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-              aria-expanded="false">
-              <i class="fas fa-share-alt fa-3x"></i></span>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item bg-primary text-white">
-                <i class="fab text-white fa-facebook-f"></i>
-              </a>
-              <a class="dropdown-item bg-info text-white">
-                <i class="text-white fab fa-twitter"></i>
-              </a>
-              <a class="dropdown-item bg-danger">
-                <i class="text-white fas fa-envelope"></i>
-              </a>
+            <div class="favorite-icon">
+              <input type="checkbox" />
+              <i class="far fa-heart"></i>
+              <i class="favorite fas fa-heart"></i>
+            </div>
+            <div class="card-dropdown">
+              <span class="social dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                <i class="fas fa-share-alt fa-3x"></i></span>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item bg-primary text-white">
+                  <i class="fab text-white fa-facebook-f"></i>
+                </a>
+                <a class="dropdown-item bg-info text-white">
+                  <i class="text-white fab fa-twitter"></i>
+                </a>
+                <a class="dropdown-item bg-danger">
+                  <i class="text-white fas fa-envelope"></i>
+                </a>
+              </div>
             </div>
           </div>
         </div>
-        </div>
         <!-- body -->
-          <p>{{articleDetails.description}}</p>
-          <div class="date"><i class="far fa-calendar-alt fa-1x"></i>{{articleDetails.publishedAt}}</div>
-        </div>
+        <p>{{articleDetails.description}}</p>
+        <div class="date"><i class="far fa-calendar-alt fa-1x"></i>{{articleDetails.publishedAt}}</div>
       </div>
-      <!-- end -->
-</div>
+    </div>
+    <!-- end -->
+  </div>
 </section>

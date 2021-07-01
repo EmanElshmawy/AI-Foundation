@@ -1,8 +1,8 @@
 <nav class="navbar fixed-top">
   <div class="container">
     <div class="navbar__menu-btn" (click)='menuCollapse()' [ngClass]="{'showIcon': collapseMenu}">
-        <img class="img-fluid" src="../../../assets/img/shared/Menu.png" alt=""  *ngIf="!collapseMenu">
-        <img class="img-fluid" src="../../../assets/img/shared/Menu_2_.svg" alt="" *ngIf="collapseMenu">
+      <img class="img-fluid" src="../../../assets/img/shared/Menu.png" alt="" *ngIf="!collapseMenu">
+      <img class="img-fluid" src="../../../assets/img/shared/Menu_2_.svg" alt="" *ngIf="collapseMenu">
     </div>
     <a href="" class="navbar__logo">
       <img class="img-fluid" src="../../../assets/img/shared/logo.svg" alt="">
@@ -13,18 +13,20 @@
           <input type="text" class="form-control" placeholder="Search">
         </div>
         <div class="search" (click)="searchCollapse()">
-          <img src="../../../assets/img/shared/ic_search_24px.svg" alt="search" >
+          <img src="../../../assets/img/shared/ic_search_24px.svg" alt="search">
         </div>
         <span class="toats">search</span>
       </li>
-      <ul class="notification">
-        <li class="dropdown">
+      <li class="notification">
+        <div class="dropdown">
           <a type="button" id="notification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <img src="../../../assets/img/shared/notification.svg" alt="">
             <span class="toats">notifications</span>
           </a>
           <ul class="dropdown-menu" aria-labelledby="notification">
-            <li><h4>recent notification</h4></li>
+            <li>
+              <h4>recent notification</h4>
+            </li>
             <li>
               You have an upcoming appointment today!
               <a class="dropdown-item disabled" href="#"> Check-in Now</a>
@@ -34,27 +36,47 @@
             </li>
             <li>
               Your payment request has been approved
-             </li>
+            </li>
             <li>
               <a class="dropdown-item d-flex align-items-center" href="#">All Notifications<i
                   class="fas fa-long-arrow-alt-right fa-1x"></i>
               </a>
             </li>
           </ul>
-        </li>
-      </ul>
+        </div>
+      </li>
       <li class="navbar__profile align-items-center">
         <img src="../../../assets/img/shared/img.png" alt="">
         <p>User name</p>
       </li>
       <li class="navbar__setting">
+        <div class="dropdown">
           <a type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <img src="../../../assets/img/shared/settings.svg" alt="">
             <span class="toats">setting</span>
           </a>
-          <ul class="dropdown-menu" aria-labelledby="triggerId">
-            <li><a href="#"></a></li>
+          <ul class="dropdown-menu" aria-labelledby="notification">
+            <li>
+              <h4>Language</h4>
+            </li>
+            <li>
+              <a href="#" class="current">English</a>
+              <a href="#">اللغة العربية</a>
+            </li>
+            <li>
+              <h4>Font Size</h4>
+              <div class="font-wrapper" id="font">
+                <a href="#" ><i class="fas fa-font fa-3x"></i></a>
+                <a href="#" class="checked"><i class="fas fa-font fa-2x"></i></a>
+                <a href="#"><i class="fas fa-font fa-lg"></i></a>
+              </div>
+            </li>
+            <li>
+              <h4>Account</h4>
+              <a href="#">Signout</a>
+            </li>
           </ul>
+        </div>
       </li>
     </ul>
   </div>
