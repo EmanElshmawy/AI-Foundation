@@ -22,6 +22,7 @@
 
     li {
       margin: 0 5px;
+
       @media(min-width:$lg) {
         margin: 0 15px;
       }
@@ -90,6 +91,7 @@
 
   &__profile {
     display: none;
+
     img {
       width: 50px;
     }
@@ -97,7 +99,8 @@
     p {
       color: #fff;
     }
-    @media(min-width:$lg){
+
+    @media(min-width:$lg) {
       display: flex;
     }
   }
@@ -106,39 +109,74 @@
     margin-right: 0.5rem;
     position: relative;
 
-    a {
-      color: #ffffff;
-      font-size: 1.3rem;
-      padding: 0.6rem;
-      border-radius: 0.5rem;
+    .dropdown {
       @include navbarHover();
       @include transition-duration(0.1s);
       @include transition-timing-function(ease-in-out);
     }
-
-    .dropdown-menu {
-      a {
-        font-size: 1rem;
-      }
-
-      &:last-child {
-        color: $sky-blue;
-
-        i {
-          padding-left: 1rem;
-        }
-
-        &:hover {
-          color: $sky-blue;
-
-          i {
-            color: $sky-blue;
-            background-color: transparent;
-            transform: scaleX(1.5);
-          }
-        }
+    .dropdown-item{
+      &:hover, &:focus{
+        background: transparent;
       }
     }
+    .dropdown-menu {
+      min-width: 280px;
+
+      h4 {
+        font-size: 0.9rem;
+        color: #9e9e9e;
+        text-transform: capitalize;
+        margin: 0;
+        font-weight: 400;
+      }
+
+      li {
+        border-bottom: 1px solid $lightGrey;
+        font-size: 1rem;
+        margin: 0;
+        padding: 0.5rem 0.8rem;
+        color: #000;
+
+        a , i{
+          font-size: 0.9rem;
+          color: $sky-blue;
+          padding: 0;
+          width: auto;
+          display: inline-block;
+
+        }
+
+        &:first-child {
+          border-bottom: none;
+          padding-bottom: 0;
+        }
+
+        &:last-child {
+          border-bottom: none;
+          display: flex;
+          justify-content: center;
+          padding: 1rem 1rem 0.5rem;
+          align-items: center;
+          i {
+            padding-left: 1rem;
+            @include transition-duration(0.1s);
+            @include transition-timing-function(ease-in-out);
+          }
+
+          &:hover {
+            color: $sky-blue;
+
+            i {
+              color: $sky-blue;
+              background-color: transparent;
+              transform: scaleX(1.5);
+            }
+          }
+        }
+
+      }
+    }
+
 
   }
 
