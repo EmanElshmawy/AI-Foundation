@@ -5,6 +5,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## steps for download the project 
 ## First Step
 git clone https://github.com/EmanElshmawy/AI-Foundation.git
+## then
 cd AI-Foundation
 
 ## Step 2: Run "npm install"
