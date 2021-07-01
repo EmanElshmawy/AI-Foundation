@@ -16,13 +16,13 @@ export class BannerSliderComponent implements OnInit {
     },
     {
       id: 2,
-      src: '../../../../assets/img/homepage/slider2Mobile@2x.jpg',
+      src: '../../../../assets/img/homepage/slider2Mobile.jpg',
       alt: 'Carousel-2',
       title: 'Carousel-2',
     },
     {
       id: 2,
-      src: '../../../../assets/img/homepage/slider2Mobile@2x.jpg',
+      src: '../../../../assets/img/homepage/Layer17.jpg',
       alt: 'Carousel-2',
       title: 'Carousel-2',
     }
