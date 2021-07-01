@@ -31,14 +31,11 @@ export class NewsComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(
         (data) => {
-          console.log(data);
           this.NewsList = data;
           this.NewsList.forEach(
             (article: { showOnHomepage: boolean; description: any }) => {
               if (article.showOnHomepage === true && article.description !== ''
               ) {
-                console.log(article);
-
                 this.homeNewList.push(article);
               }
             }

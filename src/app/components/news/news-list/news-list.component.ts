@@ -4,7 +4,7 @@ import { takeUntil } from 'rxjs/operators';
 import { Subject, Subscription } from 'rxjs';
 import { NewsService } from '../../../services/news.service';
 import { CategoriesService } from '../../../services/categories.service';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-news-list',
   templateUrl: './news-list.component.html',
@@ -12,18 +12,19 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class NewsListComponent implements OnInit, OnDestroy {
   unsubscribe$ = new Subject<void>();
-  NewsList: any = [];
-  homeNewList: any = [];
-  categories: any = [];
+  subscription: Subscription | undefined;
+  allNews: any = [];
+  categories: any = ['All category'];
   filterNews: any = [];
   searchForm: FormGroup;
+  resetRows: any;
+
   constructor(
     private http: HttpClient,
     private newsService: NewsService,
-    private CategoriesService: CategoriesService,
+    private categoriesService: CategoriesService,
     private fb: FormBuilder
   ) {
-    subscription: Subscription;
     this.searchForm = this.fb.group({
       start_date: [],
       end_date: [],
@@ -47,21 +48,17 @@ export class NewsListComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(
         (data) => {
-          this.NewsList = data;
-          this.NewsList.forEach(
-            (article: { showOnHomepage: boolean; description: any }) => {
-              if (
-                article.showOnHomepage === true &&
-                article.description !== ''
-              ) {
-                this.homeNewList.push(article);
-              }
-            }
-          );
-          this.homeNewList.sort(this.sortFunction);
+          console.log(data);
+
+          this.allNews = data;
+          // this.allNews.sort(this.sortFunction);
+          this.resetRows = this.allNews;
+          console.log(this.allNews);
+
         },
         (error) => {
           console.log(error);
+
         }
       );
   }
@@ -71,11 +68,11 @@ export class NewsListComponent implements OnInit, OnDestroy {
   /* -------------------------------------------------------------------------- */
 
   displayCategories() {
-    this.CategoriesService.getCategories()
+    this.categoriesService
+      .getCategories()
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(
         (data) => {
-          console.log(data);
           this.categories = data;
         },
         (error) => {
@@ -84,60 +81,108 @@ export class NewsListComponent implements OnInit, OnDestroy {
       );
   }
 
-  sortFunction(
-    a: { date: string | number | Date },
-    b: { date: string | number | Date }
-  ) {
-    var dateA = new Date(a.date).getTime();
-    var dateB = new Date(b.date).getTime();
-    return dateA < dateB ? 1 : -1;
-  }
+  // sortFunction(
+  //   a: { date: string | number | Date },
+  //   b: { date: string | number | Date }
+  // ) {
 
-  sortBynameAtoZ(a: { title: any }, b: { title: any }) {
+  //   var dateA = new Date(this.formatDateFun(a.date)).getTime();
+  //   var dateB = new Date(this.formatDateFun(b.date)).getTime();
+  //   return dateA < dateB ? 1 : -1;
+  // }
+
+  sortBynameAtoZ(a:any, b:any) {
     var dateA = a.title;
     var dateB = b.title;
     return dateA > dateB ? 1 : -1;
   }
-  sortBynameZtoA(a: { title: any }, b: { title: any }) {
+  sortBynameZtoA(a: any, b: any) {
     var dateA = a.title;
     var dateB = b.title;
     return dateA < dateB ? 1 : -1;
   }
 
   sortAsc() {
-    this.homeNewList.sort(this.sortBynameAtoZ);
+    this.allNews.sort(this.sortBynameAtoZ);
   }
 
   sortDesc() {
-    this.homeNewList.sort(this.sortBynameZtoA);
+    this.allNews.sort(this.sortBynameZtoA);
   }
 
   // filter by categories
 
   searchByCategory() {
+    this.allNews = this.resetRows;
     let category = this.searchForm.controls.category.value;
-    console.log(category);
-
     let selectedCategory: any;
     let filteredData: any = [];
     this.categories.forEach((e: any) => {
-      console.log(e);
-      console.log(category);
       if (e.name === category) {
         selectedCategory = e;
       }
     });
-    this.NewsList.forEach((element: any) => {
-      console.log(element);
-      console.log(selectedCategory);
+    this.allNews.forEach((element: any) => {
       if (element.sourceID === selectedCategory.id) {
         filteredData.push(element);
       }
     });
-    this.homeNewList = filteredData;
-    console.log(this.homeNewList);
+    this.allNews = filteredData;
+  }
+  // filter by name
+
+  search(event: any) {
+    if (event.keyCode === 13) {
+      this.searchByName();
+    }
+  }
+  searchByName() {
+    this.resetFilter();
+    let term: any = this.searchForm.controls.searchValue.value.toLowerCase();
+
+    let filterArr = this.allNews.filter(function (e: any) {
+      return e['title'].toLowerCase().includes(term.toLowerCase());
+    });
+    this.allNews = filterArr;
+    console.log(this.allNews);
+    if (term == '') {
+      this.allNews = this.resetRows;
+    }
+  }
+  searchByDate() {
+    this.allNews = this.resetRows;
+    let fromDate = this.searchForm.controls.start_date.value;
+    let toDate = this.searchForm.controls.end_date.value;
+
+    let filterDate = this.allNews.filter( (e: any) => {
+      let articleDate = this.formatDateFun(e.publishedAt);
+      if (fromDate && toDate) {
+        return articleDate >= fromDate && articleDate <= toDate;
+      }
+      return true;
+    });
+    console.log(filterDate);
+
+    this.allNews = filterDate;
+    if (fromDate == '' || toDate == '') {
+      this.allNews = this.resetRows;
+    }
+
   }
 
+formatDateFun(date:any) {
+    const d = new Date(date);
+    let month = "" + (d.getMonth() + 1);
+    let day = "" + d.getDate();
+    const year = d.getFullYear();
+    if (month.length < 2) month = "0" + month;
+    if (day.length < 2) day = "0" + day;
+    return [year, month, day].join("-");
+  }
+  resetFilter(){
+    this.allNews = this.resetRows;
+    this.searchForm.reset();
+  }
   ngOnDestroy() {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();

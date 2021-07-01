@@ -10,14 +10,13 @@
        <div class="card">
         <!-- img -->
         <div class="card-img">
-          <img src="../../../../assets/img/blog.svg" alt="">
+          <img [src]="articleDetails.urlToImage" [alt]="articleDetails.title">
         </div>
         <div class="card-body">
                    <!-- links -->
         <div class="card-share text-right">
-          <h4>Category Name</h4>
-
-          <h3 class="card-title">President El Sisi Unveils “Egypt Vision 2030”</h3>
+          <h4>{{category}}</h4>
+          <h3 class="card-title">{{articleDetails.title}}</h3>
           <div class="socail">
           <div class="favorite-icon">
             <input type="checkbox" />
@@ -43,15 +42,8 @@
         </div>
         </div>
         <!-- body -->
-          <p>The Grand Egyptian Museum (GEM) is committed to being a barrier-free cultural landscape. All visitors to the GEM should feel that they are welcome and valued contributors. To that end, the GEM is working hard to ensure all visitors have the opportunity to explore, learn, interact, and participate without limitations based on physical or intellectual barriers.
-
-            Innovative and inclusive design has seamlessly integrated accessibility into the visitor experience at the GEM.  Galleries at the GEM contain multi-sensory and interactive features, including tactile models with Braille interpretation. The GEM is also striving to create resources and programs that support visitors’ diverse goals and learning styles.
-
-            Accessibility at the GEM will continue to be a major priority across the institution. Recognizing that accessibility is a shared responsibility, please let us know if you have any special requirements or if you may need assistance.
-            Innovative and inclusive design has seamlessly integrated accessibility into the visitor experience at the GEM.  Galleries at the GEM contain multi-sensory and interactive features, including tactile models with Braille interpretation. The GEM is also striving to create resources and programs that support visitors’ diverse goals and learning styles.
-
-            All visitors to the GEM should feel that they are welcome and valued contributors. To that end, the GEM is working hard to ensure all visitors have the opportunity to explore, learn, interact, and participate without limitations based on physical or intellectual barriers.
-            Accessibility at the GEM will continue to be a major priority across the institution. Recognizing that accessibility is a shared responsibility, please let us know if you have any special requirements or if you may need assistance.</p>
+          <p>{{articleDetails.description}}</p>
+          <div class="date"><i class="far fa-calendar-alt fa-1x"></i>{{articleDetails.publishedAt}}</div>
         </div>
       </div>
       <!-- end -->

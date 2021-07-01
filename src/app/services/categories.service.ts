@@ -13,5 +13,7 @@ export class CategoriesService {
   getCategories() {
     return this.http.get(`${this.baseUrl}c138bb84dc0b94ec5a18/sourceCategory`);
   }
-
+  getCategoryById(id:number) {
+    return this.http.get(`${this.baseUrl}c138bb84dc0b94ec5a18/sourceCategory/${id}`);
+  }
 }

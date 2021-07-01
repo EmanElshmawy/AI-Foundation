@@ -12,7 +12,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
      NewsRoutingModule,
      SharedModule,
      ReactiveFormsModule,
-     FormsModule
+     FormsModule,
     ],
 })
 export class NewsModule {}

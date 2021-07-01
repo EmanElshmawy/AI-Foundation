@@ -5,9 +5,10 @@
 .news-details {
   padding: 100px 0;
   background: #EFEFEF;
-h1{
-  margin: 2rem 0 3rem;
-}
+
+  h1 {
+    margin: 2rem 0 3rem;
+  }
 
   .card {
     &:hover {
@@ -24,6 +25,7 @@ h1{
 
       h3 {
         text-align: left;
+        width: clamp(45ch, 80%, 75ch);
 
         @media(min-width:$md) {
           margin-right: auto;
@@ -36,6 +38,10 @@ h1{
         display: flex;
         justify-content: flex-end;
         width: 100%;
+
+        >div {
+          margin: 0 5px;
+        }
 
         @media(min-width:$md) {
           order: 0;
@@ -67,4 +73,9 @@ h1{
     }
   }
 
+  .date {
+    i {
+      color: $textGrey !important;
+    }
+  }
 }

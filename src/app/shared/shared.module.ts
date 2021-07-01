@@ -7,6 +7,7 @@ import { CopywriteComponent } from './copywrite/copywrite.component';
 import {RouterModule} from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedNewsComponent } from './shared-news/shared-news.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,9 @@ import { SharedNewsComponent } from './shared-news/shared-news.component';
   ],
   imports: [CommonModule,
     RouterModule,
-    NgbModule],
+    NgbModule,
+    NgxPaginationModule
+  ],
   exports:[
     NavbarComponent,
     SidebarComponent,
