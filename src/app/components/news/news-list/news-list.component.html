@@ -11,20 +11,22 @@
           <div class="col-6 col-lg-2 order-2 order-lg-1">
             <div class="form-group d-flex flex-column">
               <label>From</label>
-              <input type="date" formControlName="start_date" class="form-control" (change)="searchByDate()" aria-describedby="start date">
+              <input type="date" formControlName="start_date" class="form-control" (change)="searchByDate()"
+                aria-describedby="start date">
             </div>
           </div>
           <div class="col-6 col-lg-2 order-3 order-lg-2">
             <div class="form-group d-flex flex-column">
               <label>To</label>
-              <input type="date" formControlName="end_date" class="form-control" (change)="searchByDate()" aria-describedby="end date">
+              <input type="date" formControlName="end_date" class="form-control" (change)="searchByDate()"
+                aria-describedby="end date">
             </div>
 
           </div>
           <div class="col-6  col-lg-2 order-4 order-lg-3">
             <div class="form-group d-flex flex-column">
               <label>Category</label>
-              <select class="form-control" formControlName="category" (change)="searchByCategory()" >
+              <select class="form-control" formControlName="category" (change)="searchByCategory()">
                 <option value="all">All category</option>
                 <option *ngFor="let category of categories" [value]="category.name">{{category.name}}</option>>
               </select>
@@ -32,9 +34,10 @@
           </div>
           <div class="col-12 order-1 order-lg-4 col-lg-4 search">
             <div class="form-group">
-              <input formControlName="searchValue" (keyup)="focusFunction()" type="text" class="searchInput form-control" (keypress)='search($event)' aria-describedby="search"
+              <input formControlName="searchValue" (keyup)="focusFunction()" type="text"
+                class="searchInput form-control" (keypress)='search($event)' aria-describedby="search"
                 placeholder="search">
-              <button type="submit" class="btn"  (click)='searchByName()'><i class="fas fa-search"></i></button>
+              <button type="submit" class="btn" (click)='searchByName()'><i class="fas fa-search"></i></button>
             </div>
           </div>
           <div class="col-6 order-5 col-lg-2 sortDropdown">
@@ -55,10 +58,14 @@
 
     </div>
     <div class="news__items-wrapper">
-        <div *ngIf="isLoading">
-          <app-loading-spinner></app-loading-spinner>
-        </div>
-      <app-shared-news [NewsList]="allNews" *ngIf="!isLoading"></app-shared-news>
+      <div *ngIf="isLoading">
+        <app-loading-spinner></app-loading-spinner>
+      </div>
+      <div class="nodata-foundation text-center" *ngIf="!isLoading && allNews.length == 0">
+        <img src="../../../../assets/img/shared/no-data.svg" alt="">
+        <h3>No Result Found</h3>
+      </div>
+      <app-shared-news [NewsList]="allNews" *ngIf="!isLoading && allNews.length > 0"></app-shared-news>
     </div>
   </div>
 </section>
