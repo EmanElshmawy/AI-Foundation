@@ -142,14 +142,21 @@ export class NewsListComponent implements OnInit, OnDestroy {
   /* -------------------------------------------------------------------------- */
   /*                                   search                                   */
   /* -------------------------------------------------------------------------- */
-
+  focusFunction(){
+    if(this.searchForm.controls.searchValue.value != null){
+      this.allNews = this.resetRows;
+       this.searchByName();
+    }else{
+      this.resetFilter();
+      this.allNews = this.resetRows;
+    }
+  }
   search(event: any) {
     if (event.keyCode === 13) {
       this.searchByName();
     }
   }
   searchByName() {
-    this.resetFilter();
     let term: any = this.searchForm.controls.searchValue.value.toLowerCase();
 
     let filterArr = this.allNews.filter(function (e: any) {

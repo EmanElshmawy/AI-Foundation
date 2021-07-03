@@ -25,9 +25,12 @@ export class SharedNewsComponent implements OnInit {
     a: { date: string | number | Date },
     b: { date: string | number | Date }
   ) {
-    var dateA = new Date(this.formatDateFun(a.date)).getTime();
-    var dateB = new Date(this.formatDateFun(b.date)).getTime();
-    return dateA < dateB ? 1 : -1;
+    if(a.date && b.date){
+      var dateA = new Date(this.formatDateFun(a.date)).getTime();
+      var dateB = new Date(this.formatDateFun(b.date)).getTime();
+      return dateA < dateB ? 1 : -1;
+    }
+    return true;
   }
   formatDateFun(date:any) {
     const d = new Date(date);

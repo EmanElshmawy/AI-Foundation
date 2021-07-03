@@ -32,9 +32,9 @@
           </div>
           <div class="col-12 order-1 order-lg-4 col-lg-4 search">
             <div class="form-group">
-              <input formControlName="searchValue" type="text" class="searchInput form-control" (keypress)='search($event)' aria-describedby="search"
+              <input formControlName="searchValue" (keyup)="focusFunction()" type="text" class="searchInput form-control" (keypress)='search($event)' aria-describedby="search"
                 placeholder="search">
-              <button type="submit" class="btn" (click)='searchByName()'><i class="fas fa-search"></i></button>
+              <button type="submit" class="btn"  (click)='searchByName()'><i class="fas fa-search"></i></button>
             </div>
           </div>
           <div class="col-6 order-5 col-lg-2 sortDropdown">
